@@ -1,0 +1,117 @@
+---
+title: "Clase 5"
+output: html_document
+date: "2024-09-18"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#Bienvenidxs a la Práctica 5 de Ciencia de Datos Espaciales 1
+
+```{r}
+library(tidyverse)
+```
+
+En esta práctica vamos a analizar una base de datos de covid, que es una muestra tomada de la original. Primero abran el archivo "base_covid_muestra.txt" a mano... ¿qué ven?
+
+Ahora ábranlo acá usando el siguiente bloque. ¿qué relación hay entre lo que ven acá y el txt?
+
+```{r}
+base_covid <- read.csv('base_covid_muestra.txt')
+head(base_covid)
+```
+
+La idea es entender qué podemos estudiar de esta base de datos y generar un pequeño reporte. Usen las diapos de lo que vieron en la teórica y los códigos de las clases anteriores para guiarse, además de consultar en internet. La idea es resolverlo con tudyverse.
+
+1. Calculen la edad Promedio de los contagiados de covid
+2. Hagan un histograma de edades
+
+```{r}
+#solucion...
+
+
+```
+
+3. Ahora calculen el promedio de las MUJERES de la base de datos y de los VARONES.
+
+
+Pista: la función filter de tidyverse les puede servir para esto
+
+```{r}
+#solucion
+
+
+```
+
+4. Ahora queremos hacer un estudio de los intubados. Generen una base de datos de las personas que fueron intubadas, son las que en la columna "asistencia_respiratoria_mecánica" tienen un SI.
+
+5. Usando esa base de datos, contesten qué porcentaje o fracción de las personas intubadas fallecieron.
+
+```{r}
+
+
+```
+
+6. Hagan un gráfico de barras de intubados por provincia
+
+```{r}
+
+
+```
+
+7. Ahora queremos estudiar los grupos etarios, según el siguiente criterio. Creen una columna que se llame "grupo_etario" que valga
+
+1 Si la edad es menor a 6 años 
+2 Si está entre 6 y 65 años
+3 si es mayor que 65
+
+Pista: tienen que combinar "mutate" con case_when
+
+```{r}
+
+
+```
+
+8. Ahora armen un gráfico de barras que reporte cuántos pacientes de cada grupo etario hubo y calculen porcentaje de fallecidos según grupo etario. ¿Cómo interpretan esta información?
+
+```{r}
+
+
+```
+
+
+9. Nos piden especializar el informe para los casos patagonicos. Teniendo en cuenta si las personas son o no son de la patagonia. Creen una columna llamada "patagonico" que diga sí, "si" la persona es de la patagonia y diga "no" si no es.
+
+```{r}
+#AYUDITASSS
+
+#para esto, estas son las provincias patagonicas
+
+provincias_patagonia <- c("Rio Negro", "Neuquen", "Chubut", "Santa Cruz", "Tierra del fuego")
+print(provincias_patagonia)
+#usen esta expresión para el verdadero falso de case when
+print("Chubut" %in% provincias_patagonia) #da TRUE
+print("Jujuy" %in% provincias_patagonia) #da FALSE
+
+
+
+```
+10. Carguemos ahora la base de vacunación.
+
+```{r}
+
+base_vacunas <- read.csv('base_vacunacion_dosis.csv')
+head(base_vacunas)
+```
+
+11. La columna "id_evento_caso" es la misma que la que se usa en base_covid. Usen la función left_join para agregar la información sobre vacunacion a la base_covid. Después digan cuántas personas en la Patagonia se dieron al menos una vacuna.
+
+```{r}
+
+```
+
+
+
